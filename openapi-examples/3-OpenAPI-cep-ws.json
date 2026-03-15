@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Simple Artist API",
+    "description": "A simple API to illustrate OpenAPI concepts"
+  },
+  "servers": [
+    {
+      "url": "https://viacep.com.br/ws/"
+    }
+  ],
+  "paths": {
+    "/{cep}/json": {
+      "get": {
+        "tags": [
+          "correios"
+        ],
+        "description": "Returns a list of artists",
+        "parameters": [
+          {
+            "name": "cep",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully returned a list of artists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "cep"
+                    ],
+                    "properties": {
+                      "logradouro": {
+                        "type": "string"
+                      },
+                      "bairro": {
+                        "type": "string"
+                      },
+                      "uf": {
+                        "type": "string"
+                      },
+                      "localidade": {
+                        "type": "string"
+                      },
+                      "cep": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
