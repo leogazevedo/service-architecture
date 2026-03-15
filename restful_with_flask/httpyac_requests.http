@@ -9,3 +9,9 @@ Content-Type: application/json
 {
     "title": "Read OpenAPI book"
 }
+
+PUT http://127.0.0.1:5000/todo/api/tasks/3
+Content-Type: application/json
+{
+    "done": true
+}
