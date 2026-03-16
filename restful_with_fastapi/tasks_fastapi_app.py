@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 
@@ -25,3 +25,10 @@ tasks = [
 @app.get("/todo/api/tasks")
 def get_tasks()->list[Task]:
     return tasks
+
+@app.get("/todo/api/tasks/{task_id}")
+def get_task(task_id: int)->Task:
+    task = [task for task in tasks if task.id == task_id]
+    if len(task) == 0:
+        raise HTTPException(404, f"Not found task with id {task_id}")
+    return task[0]
