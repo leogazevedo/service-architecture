@@ -2,4 +2,5 @@
 .venvFastAPI
 .venv
 .vscode
+CLAUDE.md
 __pycache__
