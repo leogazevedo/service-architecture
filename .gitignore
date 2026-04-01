@@ -1,4 +1,5 @@
 .venvFlask
 .venvFastAPI
+.venv
 .vscode
 __pycache__
