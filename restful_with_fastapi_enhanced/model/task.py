@@ -17,4 +17,4 @@ class TaskInput(BaseModel):
 class TaskUpdate(BaseModel):
     title: str | None = None
     description: str | None = None
-    done: bool = False
+    done: bool | None = None

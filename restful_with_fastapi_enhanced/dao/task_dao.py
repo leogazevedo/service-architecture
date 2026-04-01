@@ -51,7 +51,7 @@ class TaskDAO:
         task.description = (
             task_update.description if task_update.description else task.description
         )
-        task.done = task_update.done if task_update.done else task.done
+        task.done = task_update.done if task_update.done is not None else task.done
         return task
 
     @classmethod
