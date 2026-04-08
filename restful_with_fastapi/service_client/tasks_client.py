@@ -20,6 +20,7 @@ def post_task(title, description):
     response = requests.post(get_endpoint() + SERVICE_STUDENT_PATH, json=task_in_json)
     if response.json:
         print(response.json())
+        return response.json()["id"]
 
 
 def put_task(id, title, description):
@@ -38,7 +39,7 @@ def delete_task(id):
 
 
 print("==>POST---------------------------------")
-post_task(
+task_id = post_task(
     "Test the web service",
     "You should test the web service considering all possible invocations.",
 )
@@ -47,4 +48,4 @@ get_tasks()
 print("==>PUT------------------------------------")
 put_task(3, "Test web service X", "You should test this web service.")
 print("==>DELETE------------------------------------")
-delete_task(3)
+delete_task(task_id)
