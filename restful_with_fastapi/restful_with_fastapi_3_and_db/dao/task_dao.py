@@ -1,6 +1,6 @@
 from typing import List
 
-from database import get_connection
+from dao.database import get_connection
 from model.task import Task, TaskInput, TaskUpdate
 
 

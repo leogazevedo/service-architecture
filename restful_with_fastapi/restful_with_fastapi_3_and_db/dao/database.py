@@ -1,15 +1,14 @@
 import sqlite3
-import os
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "/data/tasks.db")
+from constants import DB_PATH
 
 
 def get_connection() -> sqlite3.Connection:
     # use of sqlite which is Python native.
     conn = sqlite3.connect(DB_PATH)
-    # Configure sqlite to allow access its data by column name 
+    # Configure sqlite to allow access its data by column name
     # (i.e., row["column"]) instead of by index.
-    conn.row_factory = sqlite3.Row 
+    conn.row_factory = sqlite3.Row
     return conn
 
 
@@ -25,6 +24,3 @@ def init_db():
             )
         """)
         conn.commit()
-
-
-
